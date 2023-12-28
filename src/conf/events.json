@@ -1,0 +1,35 @@
+{
+  "app_name": "events",
+  "server_port": 9094,
+  "log4js": {
+    "appenders": {
+      "fileAppender": {
+        "filename": "/appserv/unp/logs/events.log"
+      },
+      "statusAppender": {
+        "type": "file",
+        "filename": "/appserv/unp/logs/status.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": [          
+          "fileAppender"
+        ],
+        "level": "debug"
+      },
+      "status": {
+        "appenders": [
+          "statusAppender"
+        ],
+        "level": "debug"
+      }
+    }
+  }
+}

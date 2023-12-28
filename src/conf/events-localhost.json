@@ -1,0 +1,51 @@
+{
+  "db": {
+    "host": "localhost",
+    "user": "postgres",
+    "password": "postgres",
+    "database": "NOTIFICATOREDB",
+    "max": 30,
+    "idleTimeoutMillis": 30000,
+    "connectionTimeoutMillis": 10000,
+    "schema": "unpevents"
+  },
+  "mb": {
+    "queues": {
+      "messages": "http://localhost:8080/api/v1/queues/events:events?count=10"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGRlZjJkYzUtOGM1Ny00NDE5LTg1MGYtOTg4ZjhkN2QzNWQwIiwiY2xpZW50X25hbWUiOiJzbXNjb25zdW1lciIsImNsaWVudF91dWlkIjoiMWMyM2ZlMWMtMTA4ZC00MTk0LTljNzktYTU1NTY1YzA2MTE2IiwicHJlZmVyZW5jZV9zZXJ2aWNlX25hbWUiOiJyb2xfbnVvdm9fcmVmZXJ0byIsImV4cCI6MjUzNDAyMjEwODAwMDAwLCJpYXQiOjE1MTk4MjI3MDQ0MzgsImFwcGxpY2F0aW9ucyI6eyJtYiI6WyJlbnF1ZXVlIiwiZGVxdWV1ZSJdLCJtZXgiOlsid3JpdGUiLCJyZWFkIiwiYWRtaW4iXSwicHJlZmVyZW5jZXMiOlsid3JpdGUiLCJyZWFkIiwiYWRtaW4iXX0sInByZWZlcmVuY2VzIjp7InB1c2giOiIxMjNlZDJkIiwiZW1haWwiOiJvb0Bhc2QuY29tIiwibWV4IjoiYXNkYWQifX0.07FKRvbZSLyZPR9IjucRM2jhhTFOnku5NfWSrC8Zn6k"
+  },
+  "log4js": {
+    "appenders": {
+      "fileAppender": {
+        "filename": "../../../logs/events.log"
+      },
+      "statusAppender": {
+        "type": "file",
+        "filename": "../../../logs/status.log",
+        "maxLogSize": 5242880,
+        "compress": true,
+        "layout": {
+          "type": "pattern",
+          "pattern": "%d{yyyy-MM-dd hh:mm:ss} [%-5p] %m"
+        }
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": [
+          "consoleAppender",
+          "fileAppender"
+        ],
+        "level": "debug"
+      },
+      "status": {
+        "appenders": [
+          "consoleAppender",
+          "statusAppender"
+        ],
+        "level": "debug"
+      }
+    }
+  }
+}
