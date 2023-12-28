@@ -43,6 +43,16 @@ I principali attributi presenti nei file di configurazione sono elencati di segu
     * `token`: il token auth per chiamare il message broker
 * `log4js`: la configurazione di log4js (vedi https://www.npmjs.com/package/log4js)
 
+# Token JWT
+
+La sicurezza è gestita tramite token JWT, il token contiene, oltre ai parametri di default (come `iat`, `exp`, ...):
+* `preference_service_name`: il nome del servizio
+* `applications`: contiene le appicazioni della suite Notify con i relativi permessi assegnati.
+* `preferences`: contiene le configurazioni delle eventuali canalità abilitate per il servizio (come ad esempio l'indirizzo email con cui inviare le notifiche email, il token push con cui inviare le notifiche push, ecc...).
+
+La passphrase usata verificare la correttezza della firma del token è contenuta nella variabile d'ambiente `EVENTS_SECURITY_SECRET` oppure nel file di configurazione.
+Il token JWT viene letto nell'header `x-authentication`.
+
 ## Running
 
 Avviare events
