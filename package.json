@@ -2,7 +2,7 @@
   "name": "events_system",
   "version": "1.0.0",
   "description": "Component composed by events ( API ) and eventsconsumer",
-  "main": "events.js",
+  "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "test"

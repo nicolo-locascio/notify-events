@@ -1,3 +1,5 @@
 
-node src/jobs/events.js >/dev/null 2>&1 &
-node src/messages_result.js >/dev/null 2>&1 &
+#!/bin/bash
+cd src && node messages_result.js >/dev/null 2>&1 &
+cd src/jobs && node events.js >/dev/null 2>&1 &
+
